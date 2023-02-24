@@ -1,20 +1,13 @@
 function App() {
-  function substractTwo(a) {
-    return a - 2;
-  }
-  function multiplyFour(a) {
-    return a * 4;
-  }
-  const compose = (...functions) => {
-    return (args) =>
-      functions.reduceRight((arg, fn) => {
-        return fn(arg);
-      }, args);
-  };
-  const evaluate = compose(substractTwo, multiplyFour);
-  console.log(evaluate(5)); // 23
-
-  return <div className=""></div>;
+  return (
+    <div className="w-full h-screen flex items-center justify-center">
+      <div className="bg-black h-36 w-36 m-12 p-12 border-4 border-blue-200">
+        <div className="bg-red-500 w-full h-full flex items-center justify-center">
+          Hi
+        </div>
+      </div>
+    </div>
+  );
 }
 
 export default App;
