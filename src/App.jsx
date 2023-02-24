@@ -1,11 +1,28 @@
+import { useEffect, useState } from "react";
+
 function App() {
+  const [input, setInput] = useState("");
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      console.log(input);
+    }, 1000);
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [input]);
+
+  const handleOnChange = (e) => {
+    setInput(e.target.value);
+  };
   return (
     <div className="w-full h-screen flex items-center justify-center">
-      <div className="bg-black h-36 w-36 m-12 p-12 border-4 border-blue-200">
-        <div className="bg-red-500 w-full h-full flex items-center justify-center">
-          Hi
-        </div>
-      </div>
+      <input
+        value={input}
+        onChange={handleOnChange}
+        className="border-2 border-blue-400 text-2xl"
+        type="text"
+      />
     </div>
   );
 }
